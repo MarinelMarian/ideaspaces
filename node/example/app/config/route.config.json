@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "route": "/v1/ideas/:ideaid",
+      "method": "GET",
+      "controller": "../controllers/v1/ideas/ideas-controller"
+    }
+  ]
+}
