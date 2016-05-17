@@ -1,0 +1,4 @@
+database_url:
+  development: "sqlite:///var/tmp/db.sqlite"
+  test: 'sqlite::memory:'
+  production: "mysql://ideaspaces:ideaspaces@localhost/ideaspaces"
