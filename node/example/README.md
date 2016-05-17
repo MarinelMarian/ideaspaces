@@ -1,6 +1,10 @@
 # ideaspace - Node project example
 This project has been tested with Node v6.0.0
 
+## Install dependencies 
+
+    npm install
+
 ## Run the app
     npm start
 

@@ -1,6 +1,9 @@
 # ideaspace - Python project example
 This project has been tested with Python 2.7.6
 
+## Install dependencies
+    sudo pip install -r requirements.txt
+
 ## Run the app
     ./manage.py runserver
 

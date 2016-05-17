@@ -1,5 +1,8 @@
 # ideaspace - C# WebApi project example
-For this project to work on Linux, you need to install [Mono](http://www.mono-project.com/download/) and [.NET Core](https://www.microsoft.com/net/core)
+For this project to work on Linux, you need to install [.NET Core](https://www.microsoft.com/net/core)
+
+## Download dependencies
+    dotnet restore
 
 ## Run the app
     dotnet run
