@@ -101,9 +101,13 @@ angular
         templateUrl:'views/pages/blank.html',
         url:'/blank'
     })
-      .state('login',{
-        templateUrl:'views/pages/login.html',
-        url:'/login'
+    .state('login',{
+      templateUrl:'views/pages/login.html',
+      url:'/login'
+    })
+    .state('signup',{
+      templateUrl:'views/pages/signup.html',
+      url:'/signup'
     })
       .state('dashboard.chart',{
         templateUrl:'views/chart.html',
