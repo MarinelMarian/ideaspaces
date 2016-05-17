@@ -3,3 +3,4 @@ npm-debug.log
 **/composer.phar
 **/.gradle
 **/build
+**/bower_components
