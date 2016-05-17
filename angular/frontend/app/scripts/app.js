@@ -107,7 +107,19 @@ angular
     })
     .state('signup',{
       templateUrl:'views/pages/signup.html',
-      url:'/signup'
+      url:'/signup',
+      controller: 'SignupCtrl as signupCtrl',
+        resolve: {
+          loadMyFiles:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name:'sbAdminApp',
+              files:[
+                'scripts/controllers/signupController.js',
+                'scripts/services/userService.js'
+              ]
+            })
+          }
+        }
     })
       .state('dashboard.chart',{
         templateUrl:'views/chart.html',
