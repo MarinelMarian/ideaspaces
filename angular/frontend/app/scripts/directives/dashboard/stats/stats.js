@@ -15,6 +15,7 @@ angular.module('sbAdminApp')
   		scope: {
         'model': '=',
         'comments': '@',
+        'action': '@',
         'number': '@',
         'name': '@',
         'colour': '@',
@@ -22,6 +23,6 @@ angular.module('sbAdminApp')
         'type':'@',
         'goto':'@'
   		}
-  		
+
   	}
   });
