@@ -1,10 +1,15 @@
 package com.itake2016.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "IDEA")
 public class Idea {
-
+    @Id
+    @GeneratedValue
     private final long id;
     private final String content;
 

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user")
@@ -18,7 +19,9 @@ public class UserController {
 
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	void register(@ModelAttribute("SpringWeb")User user) {
-		userRepository.save(user);
+	@ResponseBody
+	public User register(@ModelAttribute("SpringWeb")User user) {
+		System.out.println(user);
+		return userRepository.save(user);
 	}
 }
