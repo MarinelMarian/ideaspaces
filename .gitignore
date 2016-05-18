@@ -4,3 +4,4 @@ npm-debug.log
 **/.gradle
 **/build
 **/bower_components
+**/.idea
