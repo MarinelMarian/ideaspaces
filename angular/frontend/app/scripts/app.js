@@ -13,8 +13,16 @@ angular
     'ui.router',
     'ui.bootstrap',
     'angular-loading-bar',
+    'angular-jwt'
   ])
-  .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider',function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider) {
+  .config(['$stateProvider','$urlRouterProvider','$ocLazyLoadProvider', '$httpProvider', 'jwtInterceptorProvider',
+    function ($stateProvider,$urlRouterProvider,$ocLazyLoadProvider, $httpProvider, jwtInterceptorProvider) {
+
+    jwtInterceptorProvider.tokenGetter = [function() {
+      return localStorage.getItem('token');
+    }];
+
+    $httpProvider.interceptors.push('jwtInterceptor');
 
     $ocLazyLoadProvider.config({
       debug:false,
@@ -103,7 +111,19 @@ angular
     })
     .state('login',{
       templateUrl:'views/pages/login.html',
-      url:'/login'
+      url:'/login',
+      controller: 'LoginCtrl as loginCtrl',
+        resolve: {
+          loadMyFiles:function($ocLazyLoad) {
+            return $ocLazyLoad.load({
+              name:'sbAdminApp',
+              files:[
+                'scripts/controllers/loginController.js',
+                'scripts/services/userService.js'
+              ]
+            })
+          }
+        }
     })
     .state('signup',{
       templateUrl:'views/pages/signup.html',
