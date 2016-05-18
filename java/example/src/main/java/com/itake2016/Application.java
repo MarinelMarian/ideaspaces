@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.*;
 import org.springframework.boot.autoconfigure.orm.jpa.*;
 
 @ComponentScan
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
+@EnableAutoConfiguration
 public class Application {
 
     public static void main(String[] args) {
