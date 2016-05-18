@@ -10,19 +10,19 @@
                     <form role="form">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="First name" name="firstName" type="text" autofocus>
+                                <input class="form-control" placeholder="First name" name="firstName" type="text" autofocus ng-model="firstName">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Last name" name="lastName" type="text" autofocus>
+                                <input class="form-control" placeholder="Last name" name="lastName" type="text" autofocus ng-model="lastName">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                <input class="form-control" placeholder="E-mail" type="text" ng-model="email">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                <input class="form-control" placeholder="Password" name="password" type="text" value="" ng-model="password">
                             </div>
                             <!-- Change this to a button or input when using this as a form -->
-                            <a class="btn btn-lg btn-success btn-block" ng-click="signupCtrl.signup()">Go!</a>
+                            <a class="btn btn-lg btn-success btn-block" ng-click="signupCtrl.signup(firstName, lastName, email, password)">Go!</a>
                         </fieldset>
                     </form>
                 </div>
