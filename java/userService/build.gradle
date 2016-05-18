@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        maven { url 'http://repo.springsource.org/libs-snapshot' }
+        mavenLocal()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE')
+    }
+}
+
+
+apply plugin: 'java'
+
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'ideaspaces'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.springsource.org/libs-snapshot' }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web:1.3.5.RELEASE')
+    compile 'org.thymeleaf:thymeleaf-spring3:2.0.17'
+
+
+
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa:1.3.5.RELEASE'
+
+
+    compile 'org.springframework.boot:spring-boot-starter-logging:1.3.5.RELEASE'
+
+    compile 'mysql:mysql-connector-java:5.1.13'
+
+
+
+}
+
+task run(type:Exec){
+    commandLine "java -jar build/libs/ideaspaces-0.1.0.jar".split(' ')
+}
+
+run.dependsOn build
+
+
+task (type: Wrapper) {
+    gradleVersion = '1.8'
+}
