@@ -1,7 +1,11 @@
 package com.itake2016.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Idea {
 
+    @Id
     private final long id;
     private final String content;
 
