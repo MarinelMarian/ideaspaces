@@ -18,7 +18,6 @@ public class User implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String passwordHash;
-	private String password;
 
 	public Long getId() {
 		return id;
@@ -73,11 +72,4 @@ public class User implements Serializable {
 				'}';
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 }
