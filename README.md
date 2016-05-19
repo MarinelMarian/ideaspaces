@@ -21,4 +21,4 @@ The entire product backlog reference is available here: http://bit.ly/idea-space
 
 # What we built so far:
 
-http://idea-spaces.ml/
+http://ideaspaces.ml/
