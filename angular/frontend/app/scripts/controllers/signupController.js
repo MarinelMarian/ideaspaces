@@ -6,9 +6,13 @@ angular.module('sbAdminApp')
     this.signup = function(firstName, lastName, email, password) {
       UserService.signup(firstName, lastName, email, password)
         .then(function successCallback(response) {
-          $state.go('dashboard.home');
+          if (email && password) {
+            $state.go('dashboard.home');
+          } else {
+              swal({   title: "Please fill the form!",   type: "error",   confirmButtonText: "Fine!" });
+          }
         }, function errorCallback(response) {
-          swal({   title: "Error!",   text: "Could not register!",   type: "error",   confirmButtonText: "Not cool!" });
+          swal({   title: "Could not register!",   type: "error",   confirmButtonText: "Not cool!" });
         });
     }
 
