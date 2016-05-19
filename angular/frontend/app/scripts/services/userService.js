@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('sbAdminApp')
-  .service('UserService', function($http) {
+  .service('UserService', function($http, jwtHelper) {
     var url = "/user";
+    // var url = "http://localhost:8080/user";
 
     var transformRequest = function(obj) {
         var str = [];
@@ -10,6 +11,18 @@ angular.module('sbAdminApp')
           str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
         return str.join("&");
     };
+
+    this.me = function() {
+      return $http({
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        url: url + "/me",
+        transformRequest: transformRequest,
+        data: {
+          token: localStorage.getItem('token')
+        }
+      });
+    }
 
     this.login = function(email, password) {
       return $http({
@@ -22,7 +35,9 @@ angular.module('sbAdminApp')
           password: password
         }
       }).then(function(response) {
-        console.log(response)
+        var tokenPayload = jwtHelper.decodeToken(response.data);
+        localStorage.setItem('token', response.data);
+        return tokenPayload
       });
     }
 
