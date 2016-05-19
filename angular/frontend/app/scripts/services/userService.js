@@ -2,7 +2,7 @@
 
 angular.module('sbAdminApp')
   .service('UserService', function($http) {
-    var url = "http://localhost:8080/user"
+    var url = "/user";
 
     var transformRequest = function(obj) {
         var str = [];
