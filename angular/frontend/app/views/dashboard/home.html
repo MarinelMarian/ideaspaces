@@ -14,5 +14,22 @@
     </div>
 
     <div class="row">
+      <h3>Ideas</h3>
+      <div ng-repeat="idea in dashboardController.ideas">
+        <div class="col-lg-6">{{idea.title}}</div>
+        <div class="col-lg-6" ng-click="dashboardController.deleteIdea(idea)">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <a href="">Delete</a>
+        </div>
+      </div>
     </div>
+
+    <div class="row">
+      <input type="text" class="form-control" ng-model="title" id="inputSuccess">
+      <button type="submit" class="btn btn-default" ng-click="dashboardController.addIdea(title); title=''">Add Idea</button>
+    </div>
+
+
+
+
 </div>

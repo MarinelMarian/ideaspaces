@@ -3,7 +3,7 @@
 angular.module('sbAdminApp')
   .service('UserService', function($http, jwtHelper) {
     var url = "/user";
-    // var url = "http://localhost:8080/user";
+    var url = "http://localhost:8080/user";
 
     var transformRequest = function(obj) {
         var str = [];
