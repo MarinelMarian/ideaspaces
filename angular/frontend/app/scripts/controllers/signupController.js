@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('sbAdminApp')
-  .controller('SignupCtrl', function($scope, UserService) {
+  .controller('SignupCtrl', function($scope, UserService, $state) {
 
     this.signup = function(firstName, lastName, email, password) {
       UserService.signup(firstName, lastName, email, password)
         .then(function successCallback(response) {
-          console.log('success');
+          $state.go('dashboard.home');
         }, function errorCallback(response) {
-          console.log('error');
+          swal({   title: "Error!",   text: "Could not register!",   type: "error",   confirmButtonText: "Not cool!" });
         });
     }
 

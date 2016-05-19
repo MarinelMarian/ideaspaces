@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('sbAdminApp')
-  .controller('LoginCtrl', function($scope, UserService) {
+  .controller('LoginCtrl', function($scope, UserService, $state) {
 
     this.login = function(email, password) {
       UserService.login(email, password)
         .then(function successCallback(response) {
-          console.log('success login');
+          $state.go('dashboard.home');
         }, function errorCallback(response) {
-          console.log('error login');
+          swal({   title: "Error!",   text: "Could not login!",   type: "error",   confirmButtonText: "Not cool!" });
         });
     }
 
