@@ -11,6 +11,7 @@ public class Idea {
     @Id
     @GeneratedValue
     private final long id;
+
     private final String content;
 
     public Idea(long id, String content) {
