@@ -2,7 +2,7 @@
 
 angular.module('sbAdminApp')
   .service('UserService', function($http, jwtHelper) {
-    var url = "/user";
+    var url = "http://ideaspaces.ml/user";
 
     var transformRequest = function(obj) {
         var str = [];

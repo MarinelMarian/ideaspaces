@@ -26,8 +26,52 @@
 
     <div class="row">
       <input type="text" class="form-control" ng-model="title" id="inputSuccess">
+      
+      <!-- TODO: 
+      - Turn this into a standalone directive
+      - Turn style into classes
+      -->
+      <a ng-click="dashboardController.toggleDoodler()" style="cursor:pointer;display:block;margin-top:10px;margin-bottom:10px;">{{dashboardController.isDoodlerVisible ? 'Hide doodle':'Show doodle' }}</a>
+	  
+      <div ng-show='dashboardController.isDoodlerVisible' id='doodle-section' style='position:relative;border:1px solid grey;top:0px;left:0px;height:530px;width:605px;padding-top:10px;margin-bottom:10px;'>
+        <input type="color" id="bgcolpick" onchange="bgcolor(this.value)" value="#a0ffb0" style="left:33px;top:15px;width:30px;height:30px;position:relative;">
+        <div id="bgtransppick" onclick="bgcolor(null)" style="left:70px;top:-15px;width:30px;height:30px;position:relative;background-color:lightgrey;border:2px solid darkgrey;">
+          <div style="left:-2px;top:-2px;width:15px;height:15px;position:relative;background-color:darkgrey;"></div>  
+          <div style="left:13px;top:-2px;width:15px;height:15px;position:relative;background-color:darkgrey;"></div>  
+        </div>
+        <input type="color" id="fgcolpick" onchange="color(this.value)" value="#6699cc" style="left:15px;top:-70px;width:30px;height:30px;position:relative;">
+        <select id='shape' onchange='shape(this.options[this.selectedIndex])' style="position:relative;top:-63px;left:80px;height:50px;">
+          <option id='freeform'>Pen</option>
+          <option id='rectangle'>Rectangle</option>
+          <option id='line'>Line</option>
+          <option id='roundrect'>Rounded Rect.</option>
+          <option id='ellipse'>Ellipse</option>
+        </select>
+        <select id='thick' onchange='thick(this.value)' style="position:relative;top:-63px;left:90px;height:50px;">
+          <option value='1'>Thinnest (1px)</option>
+          <option value='2' selected='selected' >Thinner (2px)</option>
+          <option value='3'>Thin (3px)</option>
+          <option value='5'>Normal (5px)</option>
+          <option value='8'>Thick (8px)</option>
+          <option value='13'>Thicker (13px)</option>
+          <option value='21'>Thickest (21px)</option>
+        </select>
+        <input type="button" value="Undo" id="undo" size="23" onclick="undo()" style="position:relative;left:140px;top:-63px;height:50px;">
+        <input type="button" value="Clear Doodle" id="clr" size="23" onclick="erase()" style="position:relative;left:150px;top:-63px;height:50px">
+
+        <canvas id="can" width="568" height="400" style="position:relative;top:-50px;left:15px;border:2px solid;"></canvas>
+        
+        <!--
+        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+        <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
+        -->
+        <a id="download-link" download="Doodle.png" href="#" style="position:relative;left:438px;top:-40px;">Save doodle as PNG</a>
+      </div>
+	  
       <button type="submit" class="btn btn-default" ng-click="dashboardController.addIdea(title); title=''">Add Idea</button>
     </div>
+	
+	
 
 
 

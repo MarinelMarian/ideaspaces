@@ -1,3 +1,5 @@
+// TODO: desperately in need of refactoring
+// was written in a hurry so don't judge
 var canvas, ctx, flag = false,
     prevX = 0,
     currX = 0,
