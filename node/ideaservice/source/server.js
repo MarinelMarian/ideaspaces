@@ -21,7 +21,7 @@ module.exports.create = function() {
 
   server.route({
     method: 'GET',
-    path:'/',
+    path:'/ideas',
     handler: function (request, reply) {
       var query = {};
 
@@ -35,8 +35,6 @@ module.exports.create = function() {
         };
       }
 
-      console.log(query);
-
       IdeaModel.find(query).exec(function(err, data) {
         if (err) {
           return reply(Boom.badRequest('db error'));
@@ -49,7 +47,7 @@ module.exports.create = function() {
 
   server.route({
     method: 'POST',
-    path:'/',
+    path:'/ideas',
     handler: function (request, reply) {
       var idea = new IdeaModel(request.payload);
 
@@ -65,11 +63,9 @@ module.exports.create = function() {
 
   server.route({
     method: 'DELETE',
-    path:'/{id}',
+    path:'/ideas/{id}',
     handler: function (request, reply) {
       var idea = new IdeaModel(request.payload);
-
-      console.log(request.params.id);
 
       IdeaModel.remove({ _id: request.params.id }, function (err) {
         if (err) {
