@@ -44,6 +44,8 @@ angular.module('sbAdminApp')
         self.otherIdeas = response.data;
       });
     }
+    
+    
 
     this.addIdea = function(title, description, isPublic) {
       var idea = {

@@ -68,11 +68,10 @@
       - Turn style into classes
       -->
       <a ng-click="dashboardController.toggleDoodler()" style="cursor:pointer;display:block;margin-top:10px;margin-bottom:10px;">{{dashboardController.isDoodlerVisible ? 'Hide doodle':'Show doodle' }}</a>
-
-	  
+  
       <div ng-show='dashboardController.isDoodlerVisible' id='doodle-section' style='position:relative;border:1px solid grey;top:0px;left:0px;height:530px;width:605px;padding-top:10px;margin-bottom:10px;background-color:#eeeeee;'>
 
-
+	  
         <input type="color" id="bgcolpick" onchange="bgcolor(this.value)" value="#a0ffb0" style="left:33px;top:15px;width:30px;height:30px;position:relative;">
         <div id="bgtransppick" onclick="bgcolor(null)" style="left:70px;top:-15px;width:30px;height:30px;position:relative;background-color:lightgrey;border:2px solid darkgrey;">
           <div style="left:-2px;top:-2px;width:15px;height:15px;position:relative;background-color:darkgrey;"></div>
