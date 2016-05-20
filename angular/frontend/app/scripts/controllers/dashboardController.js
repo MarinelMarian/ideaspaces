@@ -25,6 +25,7 @@ angular.module('sbAdminApp')
 
     UserService.me().then(function(response) {
       self.me = response.data;
+      getIdeas();
     });
 
     this.logout = function() {
@@ -35,12 +36,14 @@ angular.module('sbAdminApp')
     //this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
 
     function getIdeas() {
-      IdeaService.getIdeas().then(function(response) {
-        self.ideas = response.data;
+      IdeaService.getMemberIdeas(self.me.id).then(function(response) {
+        self.myIdeas = response.data;
+      });
+
+      IdeaService.getOtherIdeas(self.me.id).then(function(response) {
+        self.otherIdeas = response.data;
       });
     }
-
-    getIdeas();
 
     this.addIdea = function(title, description) {
       var idea = {
@@ -51,7 +54,7 @@ angular.module('sbAdminApp')
 
       IdeaService.addIdea(idea).then(function(response) {
         if(response.status == 200) {
-          self.ideas.push(response.data);
+          self.myIdeas.push(response.data);
         } else {
           alert("Error on sending data");
         }

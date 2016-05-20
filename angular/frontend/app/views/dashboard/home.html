@@ -14,17 +14,15 @@
     </div>
 
     <div class="row">
-      <h3>Ideas</h3>
-      <div ng-repeat="idea in dashboardController.ideas">
+      <h3>My Ideas</h3>
+      <div ng-repeat="idea in dashboardController.myIdeas">
         <div class="panel panel-default">
             <div class="panel-heading">
               {{idea.title}}
+              <a href="" ng-click="dashboardController.deleteIdea(idea)" class="btn btn-sbtn-link"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
             </div>
             <div class="panel-body">
               {{idea.description}}
-            </div>
-            <div class="panel-footer">
-              <a href="" ng-click="dashboardController.deleteIdea(idea)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
             </div>
           </div>
         </div>
@@ -32,6 +30,23 @@
     </div>
 
     <div class="row">
+      <h3>Other Ideas</h3>
+      <div ng-repeat="idea in dashboardController.otherIdeas">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              {{idea.title}}
+              <a href="" ng-click="dashboardController.deleteIdea(idea)" class="btn btn-sbtn-link"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+            </div>
+            <div class="panel-body">
+              {{idea.description}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
 
       <input type="text" class="form-control" ng-model="title" id="inputSuccess">
       
@@ -77,17 +92,18 @@
         <a id="download-link" download="Doodle.png" href="#" style="position:relative;left:438px;top:-40px;">Save doodle as PNG</a>
       </div>
 	  
-
+      <h3>New Idea</h3>
       <input type="text" placeholder="title" class="form-control" ng-model="title" id="inputSuccess">
       <textarea placeholder="description" class="form-control" ng-model="description" id="inputSuccess"></textarea>
 
       <button type="submit" class="btn btn-default" ng-click="dashboardController.addIdea(title, description); title=''; description =''">Add Idea</button>
 
+
+      
+ 
     </div>
 	
 	
-
-
 
 
 </div>

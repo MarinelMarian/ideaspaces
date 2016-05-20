@@ -12,10 +12,24 @@ angular.module('sbAdminApp')
         return str.join("&");
     };
 
-    this.getIdeas = function() {
+    this.getAllIdeas = function() {
       return $http({
         method: 'GET',
         url: url
+      });
+    };
+
+    this.getMemberIdeas = function(member) {
+      return $http({
+        method: 'GET',
+        url: url + "?member_id=" + member
+      });
+    };
+
+    this.getOtherIdeas = function(member) {
+      return $http({
+        method: 'GET',
+        url: url + "?exclude_member_id=" + member
       });
     };
 
