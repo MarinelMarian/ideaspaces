@@ -19,4 +19,12 @@ angular.module('sbAdminApp')
       });
     };
 
+    this.addIdea = function(idea) {
+      return $http({
+        method: 'POST',
+        url: url,
+        data: idea
+      });
+    };
+
   });

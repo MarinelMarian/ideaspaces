@@ -30,7 +30,7 @@ angular.module('sbAdminApp')
     this.logout = function() {
       localStorage.removeItem('token');
       $state.go('login');
-    }
+    };
 
     //this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
 
@@ -39,14 +39,20 @@ angular.module('sbAdminApp')
     });
 
     this.addIdea = function(title) {
-      this.ideas.push({title: title});
-    }
+      var idea = {
+        title: title,
+        member_id: this.me.id
+      };
+
+      IdeaService.addIdea(idea).then(function(response) {
+        self.ideas.push(idea);
+      });
+    };
 
     this.deleteIdea = function(idea) {
 
-    }
-    
-    
+    };
+
 
 });
 
