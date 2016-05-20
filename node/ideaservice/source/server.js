@@ -50,5 +50,23 @@ module.exports.create = function() {
     }
   });
 
+	server.route({
+    method: 'DELETE',
+    path:'/{id}',
+    handler: function (request, reply) {
+      var idea = new IdeaModel(request.payload);
+
+			console.log(request.params.id);
+
+      IdeaModel.remove({ _id: request.params.id }, function (err) {
+        if (err) {
+          return reply(Boom.badRequest('db error'));
+        }
+
+        return reply();
+      });
+    }
+  });
+
   return server;
 };

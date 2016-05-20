@@ -27,4 +27,11 @@ angular.module('sbAdminApp')
       });
     };
 
+    this.deleteIdea = function(id) {
+      return $http({
+        method: 'DELETE',
+        url: url + "/" + id
+      });
+    };
+
   });
