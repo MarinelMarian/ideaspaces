@@ -18,13 +18,9 @@ import java.util.List;
 @RequestMapping("/ideas")
 public class IdeasController {
 
-    @Autowired
-    private IdeaService ideaService;
-
-
     @RequestMapping(method = RequestMethod.POST)
     public @ResponseBody void createIdea(@RequestBody IdeaDTO ideaDTO) {
-        ideaService.createIdea(ideaDTO);
+
     }
 
     @RequestMapping(method = RequestMethod.GET)

@@ -1,14 +1,9 @@
 package com.itake2016.domain;
 
-import javax.persistence.*;
-
-@Entity
 public class Idea {
 
-    @Id
-    @GeneratedValue
     private long id;
-    @Column
+
     private String content;
 
     private String title;
