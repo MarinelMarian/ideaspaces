@@ -1,6 +1,6 @@
 'use strict'
 angular.module('sbAdminApp')
-  .controller('DashboardCtrl', function(UserService, $state) {
+  .controller('DashboardCtrl', function(UserService, $state, ImageService) {
 
     var self = this;
     
@@ -8,17 +8,20 @@ angular.module('sbAdminApp')
     
     self.toggleDoodler = function (){
       self.isDoodlerVisible = !self.isDoodlerVisible;
-      if(self.isDoodlerVisible) {
-        //initDoodler();
-      }
-    }
+    };
         
-    function initDoodler() {
-       //init();
-       //console.log(document.getElementById('can'));        
-    }
-    
     init();
+    
+    self.saveImage = function () {
+      var dataURL = canvas.toDataURL();
+      
+      var imageUrl = ImageService.saveImage(dataURL);
+      
+      if(imageUrl) {
+        //angualr.element();
+      }
+      return imageUrl;
+    };
 
     UserService.me().then(function(response) {
       self.me = response.data;
@@ -38,6 +41,8 @@ angular.module('sbAdminApp')
     this.deleteIdea = function(idea) {
 
     }
+    
+    
 
 });
 
@@ -81,6 +86,9 @@ function init() {
     defaultBgColor = bgcolpick.value;
     currColor = defaultColor;
     currBgColor = defaultBgColor;
+    
+    ctx.fillStyle = "white";    
+    ctx.fillRect(0, 0, w, h);
     
     addUndoStep();
     initDraw();
