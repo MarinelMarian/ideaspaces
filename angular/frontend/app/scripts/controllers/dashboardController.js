@@ -45,11 +45,12 @@ angular.module('sbAdminApp')
       });
     }
 
-    this.addIdea = function(title, description) {
+    this.addIdea = function(title, description, isPublic) {
       var idea = {
         title: title,
         description: description,
-        member_id: this.me.id
+        member_id: this.me.id,
+        isPublic: isPublic
       };
 
       IdeaService.addIdea(idea).then(function(response) {
@@ -66,7 +67,6 @@ angular.module('sbAdminApp')
         getIdeas();
       });
     };
-
 
 });
 

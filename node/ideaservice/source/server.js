@@ -8,7 +8,8 @@ var IdeaModel = mongoose.model('myModel', new mongoose.Schema({
   member_id: String,
   ideaspace_id: String,
   title: String,
-  description: String
+  description: String,
+  isPublic: { type: Boolean, default: true },
 }));
 
 module.exports.create = function() {
@@ -33,6 +34,8 @@ module.exports.create = function() {
         query.member_id = {
           $ne: request.query.exclude_member_id
         };
+
+        query.isPublic = true;
       }
 
       IdeaModel.find(query).exec(function(err, data) {
