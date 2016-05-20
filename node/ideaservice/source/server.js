@@ -24,7 +24,15 @@ module.exports.create = function() {
     path:'/',
     handler: function (request, reply) {
 
-        return reply('hello world');
+      IdeaModel.find().exec(function(err, data) {
+        if (err) {
+          return reply(Boom.badRequest('db error'));
+        }
+
+        console.log(data);
+
+        return reply("ok");
+      });
     }
   });
 
@@ -32,15 +40,14 @@ module.exports.create = function() {
     method: 'POST',
     path:'/',
     handler: function (request, reply) {
-
       var idea = new IdeaModel(request.payload);
 
       idea.save(function (err) {
         if (err) {
           return reply(Boom.badRequest('db error'));
-        } else {
-          return reply("ok");
         }
+
+        return reply("ok");
       });
     }
   });
