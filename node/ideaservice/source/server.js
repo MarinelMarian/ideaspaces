@@ -40,12 +40,12 @@ module.exports.create = function() {
     handler: function (request, reply) {
       var idea = new IdeaModel(request.payload);
 
-      idea.save(function (err) {
+      idea.save(function (err, data) {
         if (err) {
           return reply(Boom.badRequest('db error'));
         }
 
-        return reply("ok");
+        return reply(JSON.stringify(data));
       });
     }
   });

@@ -45,7 +45,11 @@ angular.module('sbAdminApp')
       };
 
       IdeaService.addIdea(idea).then(function(response) {
-        self.ideas.push(idea);
+        if(response.status == 200) {
+          self.ideas.push(response.data);
+        } else {
+          alert("Error on sending data");
+        }
       });
     };
 
