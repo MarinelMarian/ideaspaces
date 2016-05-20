@@ -29,9 +29,7 @@ module.exports.create = function() {
           return reply(Boom.badRequest('db error'));
         }
 
-        console.log(data);
-
-        return reply("ok");
+        return reply(JSON.stringify(data));
       });
     }
   });
