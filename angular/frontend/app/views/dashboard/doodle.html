@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+<body onload="init()">
+  <div style="position:absolute;top:1%;left:10%;">Choose Color</div>
+  <input type="color" id="bgcolpick" onchange="bgcolor(this.value)" value="#e0f0ff" style="left:12%;top:5%;width:30px;height:30px;position:absolute;">
+  <div onclick="bgcolor(null)" style="left:19%;top:5%;width:30px;height:30px;position:absolute;background-color:lightgrey;border:2px solid darkgrey;">
+    <div style="left:0px;top:0px;width:15px;height:15px;position:relative;background-color:darkgrey;"></div>  
+    <div style="left:15px;top:0px;width:15px;height:15px;position:relative;background-color:darkgrey;"></div>  
+  </div>
+  <input type="color" id="fgcolpick" onchange="color(this.value)" value="#6699cc" style="left:10%;top:3%;width:30px;height:30px;position:absolute;">
+
+        <div style="position:absolute;top:1%;left:40%;">Shapes</div>
+        <select id='shape' onchange='shape(this.options[this.selectedIndex])' style="position:absolute;top:3%;left:40%;">
+          <option id='freeform'>Pen</option>
+          <option id='rectangle'>Rectangle</option>
+          <option id='line'>Line</option>
+          <option id='roundrect'>Rounded Rect.</option>
+          <option id='ellipse'>Ellipse</option>
+        </select>
+        <div style="position:absolute;top:1%;left:65%;">Thickness</div>
+        <select id='thick' onchange='thick(this.value)' style="position:absolute;top:3%;left:65%;">
+          <option id='1'>1</option>
+          <option id='2' selected='selected' >2</option>
+          <option id='3'>3</option>
+          <option id='5'>5</option>
+          <option id='8'>8</option>
+          <option id='13'>13</option>
+          <option id='21'>21</option>
+        </select>
+
+        <canvas id="can" width="400" height="400" style="position:absolute;top:10%;left:10%;border:2px solid;z-index:1;"></canvas>
+        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+        <!--
+        <input type="button" value="save" id="btn" size="30" onclick="save()" style="position:absolute;top:55%;left:10%;">
+        -->
+        <input type="button" value="Clear Doodle" id="clr" size="23" onclick="erase()" style="position:absolute;left:10%;top:55%;">
+        <input type="button" value="Undo" id="undo" size="23" onclick="undo()" style="position:absolute;left:30%;top:55%;">
+        <a id="download-link" download="Doodle.png" href="#" style="position:absolute;left:55%;top:55%;">Save doodle as PNG</a>
+    </body>
+</html>
