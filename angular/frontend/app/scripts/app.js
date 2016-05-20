@@ -94,7 +94,8 @@ angular
               'scripts/controllers/dashboardController.js',
               'scripts/directives/dashboard/stats/stats.js',
               'scripts/services/userService.js',
-              'scripts/services/imageService.js'
+              'scripts/services/imageService.js',
+              'scripts/services/ideaService.js'
               ]
             })
           }

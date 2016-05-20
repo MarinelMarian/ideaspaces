@@ -1,6 +1,6 @@
 'use strict'
 angular.module('sbAdminApp')
-  .controller('DashboardCtrl', function(UserService, $state, ImageService) {
+  .controller('DashboardCtrl', function(UserService, IdeaService, $state, ImageService) {
 
     var self = this;
     
@@ -29,10 +29,14 @@ angular.module('sbAdminApp')
 
     this.logout = function() {
       localStorage.removeItem('token');
-      $state.go('login')
+      $state.go('login');
     }
 
-    this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
+    //this.ideas = [{title: "Title 1"},{title: "Title 1"},{title: "Title 1"}]
+
+    IdeaService.getIdeas().then(function(response) {
+      self.ideas = response.data;
+    });
 
     this.addIdea = function(title) {
       this.ideas.push({title: title});

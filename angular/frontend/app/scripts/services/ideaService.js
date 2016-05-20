@@ -2,8 +2,8 @@
 
 angular.module('sbAdminApp')
   .service('IdeaService', function($http, jwtHelper) {
-    var url = "/ideas";
-    // var url = "http://localhost:8081/ideas";
+    //var url = "/ideas";
+    var url = "http://localhost:8000";
 
     var transformRequest = function(obj) {
         var str = [];
@@ -15,10 +15,8 @@ angular.module('sbAdminApp')
     this.getIdeas = function() {
       return $http({
         method: 'GET',
-        url: url,
-        transformRequest: transformRequest,
+        url: url
       });
-    }
+    };
 
-    }
   });
